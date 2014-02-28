@@ -1,0 +1,760 @@
+title:: Ruby - The way back to Productivity!
+author:: Michael Neumann
+email:: mneumann@ntecs.de
+homepage:: http://www.ntecs.de/blog
+style::
+body {
+  width: 99%;
+  /*height: 99%;*/
+}
+
+.slide {
+  padding: .2em;
+  margin-top: 0.2em; /* 1.5 em */
+  margin-left: 3em; /* 3em */
+  font-size: 1.5em;
+  margin-right: 5em; /* 0.8 * 6em */
+}
+
+#naviframe {
+  background: #EEE;
+  padding: 1em;
+  padding-right: 1em;
+  margin-right: 2em;
+}
+
+#navibutton {
+  position: fixed; top: 0em; left: 0;
+  text-align: center;
+  width: 0.7em;
+  padding: 0;
+  margin: 0;
+  opacity: 0.0;
+  font-size: 1em;
+}
+
+#navibutton:hover {
+  background: #AAA;
+}
+
+#navibutton a {
+  color: #FFE;
+}
+
+#navibutton a:hover {
+  text-decoration: none;
+  color: white;
+}
+
+#slides li {
+  padding: 0.5em;
+  list-style-image:url(img/diamond_small.png);
+}
+
+#slides li li {
+  margin-top: 0.5em;
+  margin-left: 1em;
+  padding: 0.5em;
+  list-style-image:url(img/bludiamd.gif);
+}
+
+
+#slides h1 {
+  color: #DD0000;
+  text-align: right;
+  border-bottom: 1px dashed #DD0000;
+}
+
+#titlepage h1 {
+  font-size: 2.5em;
+  color: #DD0000;
+  text-align: center;
+  margin-top: 5.5em;
+  border-bottom: 1px dashed #DD0000;
+}
+
+#titlepage a {
+  text-decoration: none;
+}
+
+#author_email {
+  text-align: center;
+  font-size: 1em;
+}
+
+#slides pre {
+  background: #FFE;
+  border: 1px dotted #AAA;
+  padding: 0.5em;
+  padding-left: 1.5em;
+}
+
+#slides pre.codefile {
+  background: #FFE;
+  border: 1px dotted #AAA;
+  margin-top: 0;
+  padding: 0.5em;
+  padding-left: 1.5em;
+}
+
+#slides a.codelink {
+  text-decoration: none;
+  font-size: 0.7em;
+  relative: 1px dotted #AAA; border-width: 1px 1px 0 1px;
+  background: #EEE;
+  color: #AAA;
+}
+endstyle::
+
+= XP, UML, Agile gurus about Ruby
+
+=== Kent Beck
+
+* <i>I always knew that one day Smalltalk would replace Java.
+  I just didn't know it would be called Ruby.</i>
+
+=== Martin Fowler
+
+* <i>When I ask the question "do you think you're significantly more
+  productive in Ruby rather than Java/C#", each time I've got a strong
+  'yes'.</i>
+
+* <i>[...], names like the both the Prags, Justin Gehtland, Bruce Tate, David Geary
+  et al should be enough to make Ruby worth looking at.</i>
+
+* <i>I like the language a lot.</i>
+
+=== Ron Jeffries
+
+* <i>"In letzter Zeit arbeite ich mit Ruby und mag es sehr gerne."</i>
+
+* <i>"[...] und ich hoffe, dass die Welt lernen wird, dass dynamisch
+  typisierte Sprachen wie Ruby und Smalltalk produktiver sind als statisch
+  typisierte."</i>
+
+annotations::
+Kent Beck
+http://groups.google.de/group/comp.lang.ruby/msg/46ad5844760121bd
+
+Martin Fowler
+http://www.martinfowler.com/bliki/EvaluatingRuby.html
+http://www.martinfowler.com/bliki/MovingAwayFromXslt.html
+
+When I wrote the software for this Bliki (on a long flight) I did it in
+Ruby. [...] My conclusion from this exercise was that using Ruby for
+XML transforms was much easier than using XSLT.
+
+Jon Jeffries
+http://www.approximity.com/produktiver_programmieren/jeffries_de.html
+
+Brian Marick
+http://www.pragmaticprogrammer.com/titles/bmsft/
+(3 books)
+
+endannotations::
+
+= Try Ruby Online
+
+http://tryruby.hobix.com/
+
+
+= RubyJS - Ruby to Javascript Compilation
+
+The HTML:
+
+   !!colorize:ruby,file=src/rubyjs/index.html,link
+
+The "client-side" Ruby code:
+
+   !!colorize:ruby,file=src/rubyjs/hw.rb,link
+
+The server-side Ruby code:
+
+   !!colorize:ruby,file=src/rubyjs/server.rb,link
+
+Test it:
+
+http://localhost:3000/
+
+
+= Key aspects of Ruby
+
+* Ruby was designed for <i>humans</i>
+  * Readable
+  * Consistent
+* Lets you concentrate on the problem.
+* Ruby is pragmatic.
+
+
+= Readability
+
+Simple things like:
+
+   !!colorize:ruby
+   # count the 0`s!
+   100000000  # vs.
+   100_000_000
+
+Where do you put your parens in C/C++/Java?
+
+  !!colorize:c
+  if (...) {
+    // code
+  }
+
+  if (...)
+  {
+    // code
+  }
+
+  if (...)
+    // code
+
+In Ruby/Eiffel/Ada:
+
+  !!colorize:ruby
+  if condition
+    # code
+  end
+
+  # Ruby
+  expr if condition
+
+
+= Variable Naming
+
+Can you say wether variable +i+ below is a <i>local variable</i>, a <i>global variable</i>, an <i>instance variable</i> or a <i>constant</i>?
+
+  !!colorize:java
+  // somewhere deep inside a Java/C++/C# method
+  if (i == 1)
+  // ...
+
+In Ruby:
+
+  !!colorize:ruby
+  if i == 1     # (1) a local variable
+  if $i == 1    # (2) a global variable
+  if @i == 1    # (3) an instance variable
+  if I == 1     # (4) a constant
+
+annotations::
+That is <i>soooo</i> ugly:
+
+  !!colorize:java
+  public class X {
+    private int i;
+    
+    public X(_i) {
+      i = _i;
+    }
+
+    public X(i) {
+      this.i = i;
+    }
+  }
+
+endannotations::
+
+= Class and Method Naming
+
+From object oriented analysis we know that:
+
+* Classes = <i>nouns</i>
+
+  <tt>Animal Account File Logger Observer Class</tt>
+
+* Methods = <i>verbs</i>
+
+  <tt>miau read new open do_this_or_that delete</tt>
+
+In German and in Ruby nouns are written capitalized. In most language, including Ruby, verbs are written lowercase.
+
+style::
+#slides ul {
+  margin-top: 2em;
+}
+
+#slides li {
+  margin-top: 2em;
+  margin-bottom: 2em;
+}
+endstyle::
+
+= Readability by Conventions
+
+"?", "!" and "=" can be part of the method name:
+
+* <tt>question?</tt>
+
+  Return value is either +true+ or +false+.
+
+    !!colorize:ruby
+    if anArray.empty?
+      ...
+    end
+
+    if File.exist?('/tmp/a')
+      ...
+    end
+
+* <tt>dangerous!</tt>
+
+  Be careful! Mostly used to mark destructive updates.
+
+    !!colorize:ruby
+    str = "  hallo welt  "
+    str.strip   # => "hallo welt"
+    str         # => "  hallo welt  "
+
+    # destructive version: strip!
+    str.strip!
+    str         # => "hallo welt"
+
+
+= Readability by Conventions (2)
+
+* <tt>attribute=</tt>
+
+  A setter method (setBlah in Java)
+
+    !!colorize:ruby
+    class A
+      def value
+        @value
+      end
+
+      def value=(value)
+        @value = value
+      end
+    end
+
+    a = A.new
+    a.value = 5
+    a.value      # => 5
+
+    a.value=(6)
+    a.value      # => 6
+
+
+= Readability by Conventions (3)
+
+* <tt>[]</tt>, <tt>[]=</tt>
+
+  "Array" access.
+
+    !!colorize:ruby
+    a = ["a", "b", "c"]
+    a[0]       # => "a"
+    a[1] = 4
+    a[1]       # => 4
+
+  Again: plain methods!
+
+    !!colorize:ruby
+    class MyArray
+      def [](idx)
+        # ...
+      end
+      
+      def []=(idx, value)
+        # ...
+      end
+    end
+
+    m = MyArray.new
+    m[0]
+    m["test"]
+    m[MyArray.new] = 5
+    m[if true then x else y end] = 1.4
+
+
+= Readability by Custom Control Structures
+
+Even a child can understand:
+
+   !!colorize:ruby
+   1.upto(10) do |i|
+     print i
+   end
+
+   5.downto(1) do |i|
+     print i
+   end
+
+   10.times do
+     print "hello world"
+   end
+
+   ["a", "b", "c"].each do |e|
+     print e
+   end
+
+But would it understand this?
+
+  !!colorize:java
+  for (int i=1; i <= 10; i++) {
+    System.out.println(i);
+  }
+
+  for (int i=5; i > 1; i--) {
+    System.out.println(i);
+  }
+
+Can <i>YOU</i> state that the second is correct (within 5 seconds)? I can't!
+
+
+= Evil for-loops
+
+* They really hurt my brain (your too?)
+* And introduce possible (off-by-one[http://www.google.com/search?hl=de&client=opera&rls=en&hs=ho6&q=off-by-one-error+linux&btnG=Suche&lr=]) errors.
+* Evil <tt>while</tt> as well. They are not made for humans:
+
+    !!colorize:ruby
+    # what????
+    while a and not b
+      # do something
+    end
+
+* Instead use infinite loops with breaks:
+
+    !!colorize:ruby
+    loop do
+      break if not a
+      break if b
+    end
+
+* <tt>loop</tt> is actually a method in Ruby:
+
+    !!colorize:ruby
+    def loop
+      while true
+        yield
+      end
+    end
+
+
+= Build your own loops!
+
+* DRY - Don't Repeat Yourself! How many occurences of:
+
+    !!colorize:java
+    for (int i=0; i<arr.getLength(); i++) { /* ... arr[i] */ }
+
+* Encapsulate instead!
+
+    !!colorize:ruby
+    class Array
+      def each
+        for i in 0 ... self.length
+          yield self[i]
+        end
+      end
+    end
+
+    [1,2,3].each do |elem|
+      # ...
+    end
+
+* Need indices?
+
+    !!colorize:ruby
+      def each_with_index
+        for i in 0 ... self.length
+          yield self[i], i
+        end
+      end
+
+    [1,2,3].each_with_index {|elem, i| ... }
+
+
+= Not just loops...
+
+* Bad:
+
+    !!colorize:ruby
+    f = File.open('/tmp/test', 'w+')
+    f.write("test")
+    # ...
+    f.close
+
+  Exception can lead to a file not being closed (=> running out of files).
+
+* Ugly:
+
+    !!colorize:java
+    // do you remember how to open a file in Java?
+    f = ...
+
+    try {
+      // do something with "f"
+    } 
+    finally {
+      f.close();
+    }
+
+* Why Ugly?
+
+
+= Not just loops (2)
+
+* Encapsulate resposibility for "freeing" resources locally!!!
+* Finish what you start!
+* Good (DRY):
+
+    !!colorize:ruby
+    class File
+      def File.open_with_block(name, mode)
+        f = File.open(name, mode)
+        begin
+          yield f
+        ensure
+          f.close
+        end
+      end
+    end
+
+    File.open_with_block('/tmp/test', 'w+') do |f|
+      # ...
+    end
+
+* Luckily this comes with Ruby by default:
+
+    !!colorize:ruby
+    File.open('/tmp/test', 'w+') do |f|
+      # ...
+    end
+
+
+= Understandability
+
+* Principle of Least Surprise (actually that of the languages' creator ;-).
+
+* Documentation Matters[http://www.ruby-doc.org/core/]!!! Java's docs[http://java.sun.com/j2se/1.4.2/docs/api/java/io/FileReader.html] sucks, because no examples!
+
+* If something doesn't work, you're pissed off in Java! Inherent complexity. For example: "Umlauts" ;-)
+
+* In Ruby, it once happen that someone answered faster that speed of light ;-)
+
+annotations::
+http://www.ruby-doc.org/core/
+http://www.ruby-doc.org/stdlib/
+http://ferret.davebalmain.com/api/
+http://api.rubyonrails.org/
+
+endannotations::
+
+= Consistency
+
+In Ruby everything is
+
+* an <i>object</i>
+* an <i>expression</i>
+* a <i>method</i> call (99.999%)
+
+
+= Consistency (2)
+
+Classes are regular objects. There are no constructors, only methods!
+
+   !!colorize:ruby,file=src/classes_are_objects.rb,link,exec=ruby src/classes_are_objects.rb
+
+Ruby has meta-classes. But I don't want to go into detail :)
+
+
+= Consistency (Truth)
+
+<i>Truth</i> of values:
+
+  !!colorize:python
+  # we are in Python ;)
+  if 0:
+    print "will never be executed"
+  
+  if "":
+    print "will never be executed"
+  
+  if []:
+    print "will never be executed"
+
+The <i>absolute Truth</i> of values:
+
+   !!colorize:ruby
+   # we are back in Ruby ;)
+   if 0.zero?
+     print "will never be executed"
+  
+   if "".empty?
+     print "will never be executed"
+  
+   if [].empty?
+     print "will never be executed"
+
+* Only +nil+ and +false+ evaluate to +false+. Everything else is +true+ in Ruby.
+
+
+= OO with Ruby
+
+Single-Inheritance + Mixins.
+
+  !!colorize:ruby,file=src/seq.rb,link,exec=ruby src/seq.rb
+
+
+= Examples...
+
+
+
+= Parsing Wikipedia Metadata
+
+Extract Metadata from Wikipedia:
+
+    !!colorize:ruby,file=src/snippets/wikipedia_meta.rb,link,cd=src/snippets,exec=ruby -rubygems wikipedia_meta.rb
+
+
+= Generating PDF
+
+Easy:
+
+  !!colorize:ruby,file=src/snippets/pdf_writer.rb,link,exec=ruby -rubygems src/snippets/pdf_writer.rb | display
+
+
+http://www.artima.com/rubycs/articles/pdf_writer.html
+
+
+= Distributed Ruby
+
+Like Java's RMI but only the fraction of the code size.
+
+The server:
+
+  !!colorize:ruby,file=src/drb/drb_server.rb,link,exec=ruby src/drb/drb_server.rb
+
+The client:
+
+  !!colorize:ruby,file=src/drb/drb_client.rb,link,exec=ruby src/drb/drb_client.rb
+
+
+= Great Ruby Tools
+
+[Interactive Ruby Interpreter]
+  <i></i>
+    !!exec:xterm
+    irb
+
+[Ruby information - Query documentation]
+  <i></i>
+    !!exec:xterm
+    ri Array#join
+    ri Hash.new
+
+[Rubygems Package manager]
+  <i></i>
+    !!exec:xterm
+    gem list
+    gem install rails
+
+  Generate your own "gem" and upload it to http://rubyforge.org/. Everyone can
+  now install it using <tt>gem</tt>.
+
+[Ruby make]
+  <i></i>
+    !!exec:xterm
+    rake
+    rake db:stop
+
+[Ruby documentation generator (like javadoc)]
+  <i></i>
+    !!exec:xterm
+    rdoc
+
+
+= Ever wrote your own Webserver?
+
+* Multi-threaded
+* In Five minutes? 14 LoC?
+
+Here we go:
+
+   !!colorize:ruby,file=src/webserver/webserver.rb,link,cd=src/webserver,exec=ruby webserver.rb
+
+Lets see if it works:
+
+http://localhost:9000/index.html
+http://localhost:9000/webserver.rb
+http://localhost:9000//etc/rc.conf ;-)
+
+
+= Automating Google
+
+What are the top results for a Google query?
+
+    !!colorize:ruby,file=src/snippets/query_google.rb,link,cd=src/snippets,exec=ruby -rubygems query_google.rb
+
+
+= Domain Specific Languages
+
+Sequel, a DSL for generating SQL and accessing databases.
+
+  !!colorize:ruby,file=src/sequel/ex.rb,link,exec=ruby -rubygems src/sequel/ex.rb
+
+More infos here:
+
+http://code.google.com/p/ruby-sequel/
+
+
+= Interfacing with C is easy
+
+Write the C interface:
+
+    !!colorize:c,file=src/c_extension/kit.c,link
+
+Create the Makefile and compile it:
+
+    !!exec:xterm,cd=src/c_extension
+    ruby -rmkmf -e "create_makefile 'kit'"
+    make
+
+Ready to go:
+
+    !!colorize:ruby,file=src/c_extension/run.rb,exec=ruby run.rb,cd=src/c_extension
+
+
+= Mixing Ruby and C++
+
+Cplus2Ruby allows neatless integration of C++ code within Ruby. 
+
+* Calling C++ methods from Ruby and vice versa.
+* Handles Garbage Collection, Property initialization and Compilation automatically.
+
+<i></i>
+  !!colorize:ruby,file=src/cplus2ruby/example.rb,link,cd=src/cplus2ruby,exec=ruby19 example.rb
+
+
+= Calculating PI
+
+Is Ruby really slow?
+
+  !!colorize:ruby,file=src/pi.rb,link,exec=ruby19 src/pi.rb
+
+Keep in mind that every "/", "*", "+" or "==" is a method call that has to look up the method in a hash table.
+
+
+= Julia Sets
+
+<i></i>
+  !!exec
+  ruby19 -rcomplex -e'c,m,w,h=Complex(-0.75,0.134),50,400,200;\
+    puts"P6\n#{w} #{h}\n255";(0...h).each{|j|(0...w).each{|i|n,\
+    z=0,Complex(0.9*i/w,0.9*j/h);while n<=m&&(z-c).abs<=2;z=z*z+c;n+=1\
+    end;print [20+n*10,0,rand*99].pack("C*")}}'|display
+
+
+= Interpreter
+
+* Ruby 0.0.0 - 1.8.x: MRI - Matz Ruby Interpreter)
+* Ruby 1.9: "YARV" Bytecode
+* Rubinius http://www.rubini.us/ (EngineYard)
+* IronRuby: http://www.ironruby.net/ (Microsoft)
+* JRuby: http://jruby.codehaus.org/ (Sun)
+
+

@@ -1,0 +1,224 @@
+<!DOCTYPE UI><UI version="3.3" stdsetdef="1">
+<class>Form1</class>
+<widget class="QDialog">
+    <property name="name">
+        <cstring>Form1</cstring>
+    </property>
+    <property name="geometry">
+        <rect>
+            <x>0</x>
+            <y>0</y>
+            <width>585</width>
+            <height>265</height>
+        </rect>
+    </property>
+    <property name="caption">
+        <string>Form1</string>
+    </property>
+    <widget class="QGroupBox">
+        <property name="name">
+            <cstring>groupBox1</cstring>
+        </property>
+        <property name="geometry">
+            <rect>
+                <x>310</x>
+                <y>20</y>
+                <width>251</width>
+                <height>220</height>
+            </rect>
+        </property>
+        <property name="title">
+            <string>abc</string>
+        </property>
+        <widget class="QPushButton">
+            <property name="name">
+                <cstring>pushButton2</cstring>
+            </property>
+            <property name="geometry">
+                <rect>
+                    <x>130</x>
+                    <y>50</y>
+                    <width>101</width>
+                    <height>30</height>
+                </rect>
+            </property>
+            <property name="text">
+                <string>pushButton2</string>
+            </property>
+        </widget>
+        <widget class="QPushButton">
+            <property name="name">
+                <cstring>pushButton1</cstring>
+            </property>
+            <property name="geometry">
+                <rect>
+                    <x>20</x>
+                    <y>50</y>
+                    <width>100</width>
+                    <height>30</height>
+                </rect>
+            </property>
+            <property name="text">
+                <string>pushButton1</string>
+            </property>
+        </widget>
+        <widget class="KDateEdit">
+            <property name="name">
+                <cstring>kDateEdit1</cstring>
+            </property>
+            <property name="geometry">
+                <rect>
+                    <x>20</x>
+                    <y>110</y>
+                    <width>181</width>
+                    <height>31</height>
+                </rect>
+            </property>
+        </widget>
+    </widget>
+    <widget class="QTabWidget">
+        <property name="name">
+            <cstring>tabWidget2</cstring>
+        </property>
+        <property name="geometry">
+            <rect>
+                <x>20</x>
+                <y>10</y>
+                <width>260</width>
+                <height>230</height>
+            </rect>
+        </property>
+        <widget class="QWidget">
+            <property name="name">
+                <cstring>tab</cstring>
+            </property>
+            <attribute name="title">
+                <string>A</string>
+            </attribute>
+            <widget class="QLineEdit">
+                <property name="name">
+                    <cstring>lineEdit2</cstring>
+                </property>
+                <property name="geometry">
+                    <rect>
+                        <x>80</x>
+                        <y>30</y>
+                        <width>161</width>
+                        <height>21</height>
+                    </rect>
+                </property>
+            </widget>
+            <widget class="QLabel">
+                <property name="name">
+                    <cstring>textLabel1</cstring>
+                </property>
+                <property name="geometry">
+                    <rect>
+                        <x>20</x>
+                        <y>30</y>
+                        <width>61</width>
+                        <height>21</height>
+                    </rect>
+                </property>
+                <property name="text">
+                    <string>Name:</string>
+                </property>
+            </widget>
+            <widget class="QIconView">
+                <item>
+                    <property name="text">
+                        <string>A</string>
+                    </property>
+                    <property name="pixmap">
+                        <pixmap>image0</pixmap>
+                    </property>
+                </item>
+                <item>
+                    <property name="text">
+                        <string>B</string>
+                    </property>
+                    <property name="pixmap">
+                        <pixmap>image0</pixmap>
+                    </property>
+                </item>
+                <item>
+                    <property name="text">
+                        <string>C</string>
+                    </property>
+                    <property name="pixmap">
+                        <pixmap>image0</pixmap>
+                    </property>
+                </item>
+                <item>
+                    <property name="text">
+                        <string>D</string>
+                    </property>
+                    <property name="pixmap">
+                        <pixmap>image0</pixmap>
+                    </property>
+                </item>
+                <item>
+                    <property name="text">
+                        <string>E</string>
+                    </property>
+                    <property name="pixmap">
+                        <pixmap>image0</pixmap>
+                    </property>
+                </item>
+                <item>
+                    <property name="text">
+                        <string>F</string>
+                    </property>
+                    <property name="pixmap">
+                        <pixmap>image0</pixmap>
+                    </property>
+                </item>
+                <item>
+                    <property name="text">
+                        <string>G</string>
+                    </property>
+                    <property name="pixmap">
+                        <pixmap>image0</pixmap>
+                    </property>
+                </item>
+                <property name="name">
+                    <cstring>iconView1</cstring>
+                </property>
+                <property name="geometry">
+                    <rect>
+                        <x>20</x>
+                        <y>70</y>
+                        <width>220</width>
+                        <height>110</height>
+                    </rect>
+                </property>
+            </widget>
+        </widget>
+        <widget class="QWidget">
+            <property name="name">
+                <cstring>tab</cstring>
+            </property>
+            <attribute name="title">
+                <string>B</string>
+            </attribute>
+        </widget>
+        <widget class="QWidget">
+            <property name="name">
+                <cstring>TabPage</cstring>
+            </property>
+            <attribute name="title">
+                <string>C</string>
+            </attribute>
+        </widget>
+    </widget>
+</widget>
+<images>
+    <image name="image0">
+        <data format="PNG" length="509">89504e470d0a1a0a0000000d4948445200000020000000200806000000737a7af4000001c4494441545885bd97418ec22018851f132f314b6e306e4b3471677a03abc9ac275ec7cc7e12756ed0b89bc406aec1519845a5024281b6fa12536cdabeef7f3fa0255c7068b182293de68213bc4033f704572d10232dccb3410817dcaa1c57802f8c5408c33341def44029856a5301cbd694353763c5c1550b69814ea42e01a5eecfde565b9c7fcfed9748221a6afe31c7e1fb909d9217200b448d6b572f400a884f39206fb10b00e0743e05e7884f662a31f526201a8162514034020020a50400ec3e77c0d531f5a4c2088ba6d09b80362f16050080520a4a69978465d6b0ee93232f80aed84c40430040b92eef1037909531d6207af9660398a6268c16a514fbaf3d8e3fc70ee47d533d40a5c89a036ec52e449fa494a094424a89fa52b7ab46cf936578455809c42af799bae69452bb45115900a19e87649a9ac71c7500632b37cf0f02185bf950590998479f722b5fe500a428b7f2bf1c002965b092297b1e04a82f35ea4bed0599b2e7ae6640bb49b85b66b92ebde6c034955b001a02c0c3dead4186aef364801490a9cdbd0029202f0178154814602a107d9ffbab980cf02c906c802941b8e06430400c24f5bed10021906a53f55ea745ccd7f329e52612fa4bf60f9c1690d9413e53620000000049454e44ae426082</data>
+    </image>
+</images>
+<layoutdefaults spacing="6" margin="11"/>
+<includehints>
+    <includehint>libkdepim/kdateedit.h</includehint>
+</includehints>
+</UI>
